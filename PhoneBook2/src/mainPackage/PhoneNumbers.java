@@ -69,6 +69,7 @@ public class PhoneNumbers {
 	public static String formatNum(String phoneNum) {
 		phoneNum = phoneNum.replace("-", "");
 		phoneNum = phoneNum.replace(" ", "");
+		phoneNum = phoneNum.replaceAll("\t", "");
 		return phoneNum;
 	}
 	
