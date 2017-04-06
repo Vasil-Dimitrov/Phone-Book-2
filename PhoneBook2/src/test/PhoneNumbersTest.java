@@ -12,7 +12,7 @@ public class PhoneNumbersTest {
 	public void testCompileString() {
 		testIfPrefixChange();
 		testEmptySpaceRemoval();
-		testDashSpaceRemoval();
+		testDashRemoval();
 		testDashAndSpaceRemoval();
 		testDifferentLength();
 		testInvalidNumbers();
@@ -55,7 +55,7 @@ public class PhoneNumbersTest {
 		assertEquals("+359878000555", PhoneNumbers.compile(" + 3 5 9 8 7 8 0 0 0 5 5 5 "));
 	}
 
-	public void testDashSpaceRemoval() {
+	public void testDashRemoval() {
 		assertEquals(null, PhoneNumbers.compile("-"));
 		assertEquals(null, PhoneNumbers.compile("--"));
 		assertEquals(null, PhoneNumbers.compile("-------------------"));

@@ -78,6 +78,11 @@ public class PhoneNumbers {
 	 * Converts a valid number to the standardized bulgarian format
 	 */
 	public static String normalizeNum(String phoneNum) {
+		if(phoneNum==null)
+			return null;
+		if(phoneNum.length()<=9)
+			return null;
+		
 		int i = 4;
 		if(phoneNum.startsWith("00359"))
 			i = 5;
