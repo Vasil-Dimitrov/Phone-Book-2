@@ -17,7 +17,7 @@ public class PhoneNumbersTest {
 	}
 
 	@AfterClass
-	public void afterClass() {
+	public static void afterClass() {
 		System.out.println("PhoneNumbersTest class ended!\n");
 	}
 
