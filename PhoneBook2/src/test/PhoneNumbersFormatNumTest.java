@@ -1,13 +1,36 @@
 package test;
 import static org.junit.Assert.*;
 
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import mainPackage.PhoneNumbers;
 
 public class PhoneNumbersFormatNumTest {
+	@BeforeClass
+	public static void beforeClass() {
+		System.out.println("\nPhoneNumbersFormatNumTest class started!\n");
+	}
 
-	@Test
+	@AfterClass
+	public static void afterClass() {
+		System.out.println("PhoneNumbersFormatNumTest class ended!\n");
+	}
+
+	@Before
+	public void before() {
+		System.out.println("Test method started!");
+	}
+
+	@After
+	public void after() {
+		System.out.println("Test method ended\n");
+	}
+
+	@Test(timeout=20)
 	public void testFormatNum() {
 		//fail("Not yet implemented");
 		testDashRemoval();

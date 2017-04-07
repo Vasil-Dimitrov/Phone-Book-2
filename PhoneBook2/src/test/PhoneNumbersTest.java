@@ -1,14 +1,42 @@
 package test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import mainPackage.PhoneNumbers;
 
 public class PhoneNumbersTest {
+	@BeforeClass
+	public static void beforeClass() {
+		System.out.println("\nPhoneNumbersTest class started!\n");
+	}
+
+	@AfterClass
+	public void afterClass() {
+		System.out.println("PhoneNumbersTest class ended!\n");
+	}
+
+	@Before
+	public void before() {
+		System.out.println("Test method started!");
+	}
+
+	@After
+	public void after() {
+		System.out.println("Test method ended\n");
+	}
 
 	@Test
+	public void testZeforeAndAfter() {
+		System.out.println("First test running");
+	}
+
+	@Test(timeout = 10)
 	public void testCompileString() {
 		testIfPrefixChange();
 		testEmptySpaceRemoval();
@@ -16,6 +44,11 @@ public class PhoneNumbersTest {
 		testDashAndSpaceRemoval();
 		testDifferentLength();
 		testInvalidNumbers();
+	}
+
+	@Test
+	public void testBeforeAndAfter() {
+		System.out.println("Third test running");
 	}
 
 	public void testIfPrefixChange() {
@@ -116,19 +149,43 @@ public class PhoneNumbersTest {
 		assertEquals(null, PhoneNumbers.compile("+35987800055"));
 		assertEquals(null, PhoneNumbers.compile("+359878000"));
 	}
-	
+
 	public void testInvalidNumbers() {
 		assertEquals(null, PhoneNumbers.compile("0778000555"));
-		assertEquals(null, PhoneNumbers.compile("0988000555")); // starts as 098 instead of 0(87|88/89){1}
-		assertEquals(null, PhoneNumbers.compile("0868000555")); // starts as 086 instead of 0(87|88/89){1}
-		assertEquals(null, PhoneNumbers.compile("0871000555")); // starts as 0871 instead of 088(2-9){1}
-		assertEquals(null, PhoneNumbers.compile("0880000555")); // starts as 0880 instead of 088(2-9){1}
-		assertEquals(null, PhoneNumbers.compile("1878000555")); // starts with 1 instead of 0
-		assertEquals(null, PhoneNumbers.compile("-359878000555")); // starts with -359 instead of +359
-		assertEquals(null, PhoneNumbers.compile("359878000555")); // starts with 359 instead of +359
-		assertEquals(null, PhoneNumbers.compile("0359878000555")); // starts with 0359 instead of +359
-		assertEquals(null, PhoneNumbers.compile("+878000555")); // starts with + instead of 0
-		assertEquals(null, PhoneNumbers.compile("00878000555")); // starts with 00 instead of 0
+		assertEquals(null, PhoneNumbers.compile("0988000555")); // starts as 098
+																// instead of
+																// 0(87|88/89){1}
+		assertEquals(null, PhoneNumbers.compile("0868000555")); // starts as 086
+																// instead of
+																// 0(87|88/89){1}
+		assertEquals(null, PhoneNumbers.compile("0871000555")); // starts as
+																// 0871 instead
+																// of
+																// 088(2-9){1}
+		assertEquals(null, PhoneNumbers.compile("0880000555")); // starts as
+																// 0880 instead
+																// of
+																// 088(2-9){1}
+		assertEquals(null, PhoneNumbers.compile("1878000555")); // starts with 1
+																// instead of 0
+		assertEquals(null, PhoneNumbers.compile("-359878000555")); // starts
+																	// with -359
+																	// instead
+																	// of +359
+		assertEquals(null, PhoneNumbers.compile("359878000555")); // starts with
+																	// 359
+																	// instead
+																	// of +359
+		assertEquals(null, PhoneNumbers.compile("0359878000555")); // starts
+																	// with 0359
+																	// instead
+																	// of +359
+		assertEquals(null, PhoneNumbers.compile("+878000555")); // starts with +
+																// instead of 0
+		assertEquals(null, PhoneNumbers.compile("00878000555")); // starts with
+																	// 00
+																	// instead
+																	// of 0
 	}
 
 }

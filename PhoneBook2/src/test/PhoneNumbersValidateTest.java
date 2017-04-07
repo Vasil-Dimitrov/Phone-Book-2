@@ -3,13 +3,36 @@ package test;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import mainPackage.PhoneNumbers;
 
 public class PhoneNumbersValidateTest {
+	@BeforeClass
+	public static void beforeClass() {
+		System.out.println("\nPhoneNumbersValidateTest class started!\n");
+	}
 
-	@Test
+	@AfterClass
+	public static void afterClass() {
+		System.out.println("\nPhoneNumbersValidateTest class ended!\n");
+	}
+
+	@Before
+	public void before() {
+		System.out.println("Test method started!");
+	}
+
+	@After
+	public void after() {
+		System.out.println("Test method ended");
+	}
+
+	@Test(timeout=20)
 	public void test() {
 		// fail("Not yet implemented");
 		testCorrectPrefixes();
